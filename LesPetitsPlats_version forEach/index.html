@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Les Petits Plats</title>
+  </head>
+  <body>
+    <header>
+      <img src="./assets/img/Vector.png" alt="Logo" />
+      <h1>Les Petits Plats</h1>
+    </header>
+    <main>
+      <div class="search">
+        <div class="searchBar">
+          <input type="text" id="myInput" onkeyup="updateContent()" />
+          <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <div style="width: 100%" id="filterSection"></div>
+
+        <div class="filter blue" id="filter1"><p>Ingredients</p></div>
+        <div class="filter green" id="filter2"><p>Appareiles</p></div>
+        <div class="filter red" id="filter3"><p>Ustencils</p></div>
+      </div>
+
+      <div class="content" id="myContent"></div>
+    </main>
+  </body>
+  <script src="./data/recipes.js"></script>
+  <script src="./script/factory/factory.js"></script>
+  <script src="./script/pages/index.js"></script>
+  <script src="./script/utils/filter.js"></script>
+</html>
