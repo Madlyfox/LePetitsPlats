@@ -1,0 +1,256 @@
+* {
+  font-family: "DM Sans", sans-serif;
+}
+header {
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+
+  color: rgba(208, 79, 79, 1);
+  h1 {
+    margin: 0;
+    font-size: 25px;
+  }
+  img {
+    height: 30px;
+    width: 30px;
+  }
+}
+main {
+  display: flex;
+  flex-flow: column;
+  .search {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10px;
+    padding: 0 50px;
+    margin: 0 50px;
+    position: relative;
+    column-gap: 50px;
+    z-index: 2;
+    #filterSection {
+      display: flex;
+      flex-flow: row wrap;
+      gap: 15px;
+      .choosedFilter {
+        display: flex;
+
+        color: white;
+        padding: 0 15px;
+        border-radius: 5px;
+        align-items: center;
+        gap: 15px;
+      }
+      .choosedFilter.ingredient {
+        background-color: #3282f7;
+      }
+      .choosedFilter.appliance {
+        background-color: #68d9a4;
+      }
+      .choosedFilter.ustensils {
+        background-color: #ed6454;
+      }
+    }
+    .searchBar {
+      background-color: lightgray;
+      padding: 7px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      button {
+        background: none;
+        border: none;
+        width: 5%;
+      }
+      input {
+        border: none;
+        width: 95%;
+        background-color: transparent;
+      }
+      textarea:focus,
+      input:focus {
+        outline: none;
+      }
+    }
+    .filter {
+      width: 150px;
+      height: 50px;
+      text-align: center;
+      color: white;
+      border-radius: 5px;
+      .disabled {
+        pointer-events: none;
+      }
+      &:hover {
+        .container {
+          animation: grow 0.7s forwards;
+        }
+      }
+
+      .container {
+        display: none;
+        .list {
+          animation: appear 1.5s ease-in-out;
+        }
+
+        @keyframes appear {
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+      }
+    }
+    .active {
+      .container {
+        display: flex;
+        flex-flow: column;
+        position: relative;
+        top: -40px;
+
+        border-radius: 5px;
+        padding-bottom: 30px;
+        input {
+          margin: 0 10px;
+          color: white;
+          padding: 5px;
+          background-color: transparent;
+          max-height: 100px;
+          border: none;
+          border-bottom: 1px solid white;
+          &:focus {
+            border-bottom: none;
+            outline: none;
+          }
+        }
+        .listContainer {
+          display: flex;
+          flex-flow: column wrap;
+          height: 100%;
+          padding: 15px;
+          .list {
+            display: flex;
+            flex-flow: row wrap;
+            max-height: 100%;
+            div {
+              text-align: left;
+              padding: 5px;
+              width: 130px;
+              cursor: pointer;
+              &:hover {
+                background-color: #00000065;
+                border-radius: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .active.blue {
+      width: 600px;
+    }
+    .active.green {
+      width: 300px;
+    }
+    .active.red {
+      width: 300px;
+    }
+    .blue {
+      background-color: #3282f7;
+      .container {
+        background-color: #3282f7;
+      }
+    }
+    .green {
+      background-color: #68d9a4;
+      .container {
+        background-color: #68d9a4;
+      }
+    }
+    .red {
+      background: #ed6454;
+      .container {
+        background-color: #ed6454;
+      }
+    }
+  }
+  .content {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 50px;
+    justify-content: center;
+    gap: 100px;
+    margin-top: 30px;
+    .card {
+      height: 350px;
+      max-height: 380px;
+      width: 500px;
+      .hide {
+        display: none;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+        .cardHead {
+          height: 50%;
+          background: #c7bebe;
+        }
+        .cardContent {
+          background: #e7e7e7;
+          padding: 0 15px;
+          height: 50%;
+          display: flex;
+          flex-flow: row wrap;
+          justify-content: space-between;
+          .cchead {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin: 0;
+            .title,
+            .time {
+              margin: 0;
+            }
+          }
+          ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 12px;
+            width: 50%;
+            li {
+              display: flex;
+              align-items: center;
+              height: 1.3rem;
+              .ingredOnDisplay {
+                padding: 0;
+              }
+            }
+          }
+          .info {
+            margin: 0;
+            font-size: 12px;
+            max-height: 95px;
+            /**Major Properties**/
+            display: -webkit-box;
+            -webkit-line-clamp: 6;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
+}
+@keyframes grow {
+  0% {
+    max-height: 50px;
+  }
+  100% {
+    max-height: 850px;
+  }
+}

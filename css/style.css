@@ -1,0 +1,250 @@
+* {
+  font-family: "DM Sans", sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+  color: rgb(208, 79, 79);
+}
+header h1 {
+  margin: 0;
+  font-size: 25px;
+}
+header img {
+  height: 30px;
+  width: 30px;
+}
+
+main {
+  display: flex;
+  flex-flow: column;
+}
+main .search {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 10px;
+  padding: 0 50px;
+  margin: 0 50px;
+  position: relative;
+  column-gap: 50px;
+  z-index: 2;
+}
+main .search #filterSection {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 15px;
+}
+main .search #filterSection .choosedFilter {
+  display: flex;
+  color: white;
+  padding: 0 15px;
+  border-radius: 5px;
+  align-items: center;
+  gap: 15px;
+}
+main .search #filterSection .choosedFilter.ingredient {
+  background-color: #3282f7;
+}
+main .search #filterSection .choosedFilter.appliance {
+  background-color: #68d9a4;
+}
+main .search #filterSection .choosedFilter.ustensils {
+  background-color: #ed6454;
+}
+main .search .searchBar {
+  background-color: lightgray;
+  padding: 7px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+main .search .searchBar button {
+  background: none;
+  border: none;
+  width: 5%;
+}
+main .search .searchBar input {
+  border: none;
+  width: 95%;
+  background-color: transparent;
+}
+main .search .searchBar textarea:focus,
+main .search .searchBar input:focus {
+  outline: none;
+}
+main .search .filter {
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  color: white;
+  border-radius: 5px;
+}
+main .search .filter .disabled {
+  pointer-events: none;
+}
+main .search .filter:hover .container {
+  animation: grow 0.7s forwards;
+}
+main .search .filter .container {
+  display: none;
+}
+main .search .filter .container .list {
+  animation: appear 1.5s ease-in-out;
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+main .search .active .container {
+  display: flex;
+  flex-flow: column;
+  position: relative;
+  top: -40px;
+  border-radius: 5px;
+  padding-bottom: 30px;
+}
+main .search .active .container input {
+  margin: 0 10px;
+  color: white;
+  padding: 5px;
+  background-color: transparent;
+  max-height: 100px;
+  border: none;
+  border-bottom: 1px solid white;
+}
+main .search .active .container input:focus {
+  border-bottom: none;
+  outline: none;
+}
+main .search .active .container .listContainer {
+  display: flex;
+  flex-flow: column wrap;
+  height: 100%;
+  padding: 15px;
+}
+main .search .active .container .listContainer .list {
+  display: flex;
+  flex-flow: row wrap;
+  max-height: 100%;
+}
+main .search .active .container .listContainer .list div {
+  text-align: left;
+  padding: 5px;
+  width: 130px;
+  cursor: pointer;
+}
+main .search .active .container .listContainer .list div:hover {
+  background-color: rgba(0, 0, 0, 0.3960784314);
+  border-radius: 5px;
+}
+main .search .active.blue {
+  width: 600px;
+}
+main .search .active.green {
+  width: 300px;
+}
+main .search .active.red {
+  width: 300px;
+}
+main .search .blue {
+  background-color: #3282f7;
+}
+main .search .blue .container {
+  background-color: #3282f7;
+}
+main .search .green {
+  background-color: #68d9a4;
+}
+main .search .green .container {
+  background-color: #68d9a4;
+}
+main .search .red {
+  background: #ed6454;
+}
+main .search .red .container {
+  background-color: #ed6454;
+}
+main .content {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 50px;
+  justify-content: center;
+  gap: 100px;
+  margin-top: 30px;
+}
+main .content .card {
+  height: 350px;
+  max-height: 380px;
+  width: 500px;
+}
+main .content .card .hide {
+  display: none;
+}
+main .content .card a {
+  text-decoration: none;
+  color: black;
+}
+main .content .card a .cardHead {
+  height: 50%;
+  background: #c7bebe;
+}
+main .content .card a .cardContent {
+  background: #e7e7e7;
+  padding: 0 15px;
+  height: 50%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+main .content .card a .cardContent .cchead {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0;
+}
+main .content .card a .cardContent .cchead .title,
+main .content .card a .cardContent .cchead .time {
+  margin: 0;
+}
+main .content .card a .cardContent ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  width: 50%;
+}
+main .content .card a .cardContent ul li {
+  display: flex;
+  align-items: center;
+  height: 1.3rem;
+}
+main .content .card a .cardContent ul li .ingredOnDisplay {
+  padding: 0;
+}
+main .content .card a .cardContent .info {
+  margin: 0;
+  font-size: 12px;
+  max-height: 95px;
+  /**Major Properties**/
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  width: 50%;
+}
+
+@keyframes grow {
+  0% {
+    max-height: 50px;
+  }
+  100% {
+    max-height: 850px;
+  }
+}/*# sourceMappingURL=style.css.map */
