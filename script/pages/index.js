@@ -51,7 +51,11 @@ function updateContent() {
   }
 
   for (let i = 0; i < recipes.length; i++) {
-    if (recipes[i].name.toUpperCase().includes(search)) {
+    console.log(recipes[i].description.toUpperCase());
+    if (
+      recipes[i].name.toUpperCase().includes(search) ||
+      recipes[i].description.toUpperCase().includes(search)
+    ) {
       recipesFiltred.push(recipes[i]);
     }
   }
@@ -59,20 +63,28 @@ function updateContent() {
   // Filters
 
   if (ingredientFilterList.length >= 1) {
-    transiton = [];
+    transition = [];
+
+    arr = [];
     for (let i = 0; i < recipesFiltred.length; i++) {
+      let localIngredient = [];
       let recipe = recipesFiltred[i];
+
       for (let y = 0; y < recipe.ingredients.length; y++) {
-        let localIngredient = recipe.ingredients[y];
-        if (
-          ingredientFilterList.includes(
-            localIngredient.ingredient.toUpperCase().trim()
-          )
-        ) {
-          transition.push(recipe);
-        }
+        localIngredient.push(
+          recipe.ingredients[y].ingredient.toUpperCase().trim()
+        );
+      }
+      console.log(localIngredient);
+
+      if (ingredientFilterList.every((r) => localIngredient.includes(r))) {
+        console.log("bon");
+        transition.push(recipe);
+      } else {
+        console.log("pas bon");
       }
     }
+
     recipesFiltred = [];
     recipesFiltred = transition;
   }
@@ -89,7 +101,7 @@ function updateContent() {
         }
       }
     }
-    console.log(transition);
+
     recipesFiltred = [];
     recipesFiltred = transition;
   }
@@ -121,14 +133,13 @@ function updateContent() {
 function displayIngredientFilter() {
   const ingredientModel = ingredientFactory(recipesFiltred);
   const ingredientsDOM = ingredientModel.ingredientsDOM();
-
   ingredientFilter.appendChild(ingredientsDOM);
 }
 
 displayIngredientFilter(recipesFiltred);
 
 function filterSearch() {
-  var input, ul, li, i, txtValue, choosedFilters, filtersValue;
+  var input, ul, li, i, txtValue, filtersValue;
 
   input = document.getElementById("ingredientInput");
   search = input.value.toUpperCase();
@@ -155,15 +166,14 @@ function displayApplianceFilter() {
 displayApplianceFilter(recipesFiltred);
 
 function applianceSearch() {
-  var input, ul, li, i, txtValue, filtersValue;
+  let input = document.getElementById("applianceInput");
+  let search = input.value.toUpperCase();
+  let li = document.querySelectorAll(".appliance");
+  console.log(li);
 
-  input = document.getElementById("applianceInput");
-  search = input.value.toUpperCase();
-  ul = document.getElementById("appList");
-  li = ul.querySelectorAll(".appliance");
-  filtersValue = "";
   for (i = 0; i < li.length; i++) {
     txtValue = li[i].innerText;
+    console.log(txtValue);
 
     if (txtValue.toUpperCase().includes(search)) {
       li[i].style.display = "";
@@ -183,15 +193,14 @@ function displayUstensilsFilter() {
 displayUstensilsFilter(recipesFiltred);
 
 function ustencilSearch() {
-  var input, ul, li, i, txtValue, filtersValue;
+  let input = document.getElementById("ustencilInput");
+  let search = input.value.toUpperCase();
+  let ul = document.querySelector(".list");
+  let li = document.querySelectorAll(".ustensils");
 
-  input = document.getElementById("ustencilInput");
-  search = input.value.toUpperCase();
-  ul = document.getElementById("ustList");
-  li = ul.querySelectorAll(".ustensils");
-  filtersValue = "";
   for (i = 0; i < li.length; i++) {
     txtValue = li[i].innerText;
+
     if (txtValue.toUpperCase().includes(search)) {
       li[i].style.display = "";
     } else {

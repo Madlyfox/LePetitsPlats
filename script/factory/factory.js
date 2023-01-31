@@ -92,10 +92,10 @@ function recipesFiltredFactory(recipe) {
 function ingredientFactory(recipesFiltred) {
   const { ingredients } = recipesFiltred;
   let mapTest = [];
-  for (i = 1; i < recipesFiltred.length; i++) {
+  for (i = 0; i < recipesFiltred.length; i++) {
     const test = recipesFiltred[i].ingredients;
 
-    for (y = 1; y < test.length; y++) {
+    for (y = 0; y < test.length; y++) {
       mapTest.push(test[y].ingredient);
     }
   }
@@ -116,7 +116,7 @@ function ingredientFactory(recipesFiltred) {
 
     const ingredients = document.createElement("div");
     ingredients.setAttribute("class", "list");
-    for (i = 1; i < uniqMapTest.length; i++) {
+    for (i = 0; i < uniqMapTest.length; i++) {
       let li = document.createElement("div");
       ingredients.appendChild(li);
       li.textContent = uniqMapTest[i];
@@ -136,7 +136,7 @@ function ingredientFactory(recipesFiltred) {
 function applianceFactory(recipesFiltred) {
   let map = [];
 
-  for (i = 1; i < recipesFiltred.length; i++) {
+  for (i = 0; i < recipesFiltred.length; i++) {
     map.push(recipesFiltred[i].appliance);
   }
 
@@ -155,7 +155,7 @@ function applianceFactory(recipesFiltred) {
 
     const appliance = document.createElement("div");
     appliance.setAttribute("class", "list");
-    for (i = 1; i < uniqMap.length; i++) {
+    for (i = 0; i < uniqMap.length; i++) {
       let li = document.createElement("div");
       appliance.appendChild(li);
       li.textContent = uniqMap[i];
@@ -176,7 +176,7 @@ function applianceFactory(recipesFiltred) {
 function ustensilsFactory(recipesFiltred) {
   let map = [];
 
-  for (i = 1; i < recipesFiltred.length; i++) {
+  for (i = 0; i < recipesFiltred.length; i++) {
     let ustencil = recipesFiltred[i].ustensils;
     for (let y = 0; y < ustencil.length; y++) {
       let test = ustencil[y];

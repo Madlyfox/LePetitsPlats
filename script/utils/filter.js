@@ -64,7 +64,6 @@ function setActiv(e) {
       filterList.push(choosedFilters[y].textContent.toUpperCase().trim());
       if (filterList.some((element) => list.includes(element))) {
         listObj[i].classList.add("inactive");
-        console.log(listObj[i]);
       }
     }
   }
