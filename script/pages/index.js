@@ -44,7 +44,10 @@ function updateContent() {
   }
 
   recipes.forEach((e) => {
-    if (e.name.toUpperCase().includes(search)) {
+    if (
+      e.name.toUpperCase().includes(search) ||
+      e.description.toUpperCase().includes(search)
+    ) {
       recipesFiltred.push(e);
     }
   });
